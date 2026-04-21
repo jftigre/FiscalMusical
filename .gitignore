@@ -1,0 +1,25 @@
+# Ambientes Virtuais
+venv/
+env/
+.env
+.venv
+ENV/
+
+# Python cache e bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribuição / Pacotes
+dist/
+build/
+*.egg-info/
+
+# Logs e Bancos de dados 
+*.log
+instance/
+
+# VS Code / IDEs
+.vscode/
+.idea/
+.DS_Store
