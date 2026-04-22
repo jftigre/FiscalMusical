@@ -1,25 +1,35 @@
-# Ambientes Virtuais
+# CREDENCIAIS
+.env
+.env.*
+
+# SPOTIFY OAUTH
+.cache
+.cache-*
+
+# AMBIENTES VIRTUAIS
 venv/
 env/
-.env
-.venv
+.venv/
 ENV/
 
-# Python cache e bytecode
+# CACHE DO PYTHON
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyo
 
-# Distribuição / Pacotes
+# DISTRIBUIÇÃO E PACOTES
 dist/
 build/
 *.egg-info/
 
-# Logs e Bancos de dados 
+# LOGS E BANCO DE DADOS LOCAL
 *.log
+*.sqlite3
 instance/
 
-# VS Code / IDEs
+# SISTEMA OPERACIONAL E IDES
 .vscode/
 .idea/
 .DS_Store
+Thumbs.db
