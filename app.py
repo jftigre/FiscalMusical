@@ -46,11 +46,26 @@ def callback():
 
 @app.route('/analisar')
 def analisar():
-    token_info = session.get("token_info", None)
+    token_info = session.get("token_info")
     if not token_info:
         return redirect(url_for('login'))
         
     return "<h1>Sucesso!</h1><p>Você está logado. O back-end já tem o seu Token de Acesso do Spotify.</p>"
+
+@app.route('/top_artists')
+def top_artists():
+    token_info = session.get("token_info")
+    
+    if not token_info:
+        return redirect(url_for('login'))
+    
+    sp = spotipy.Spotify(auth=token_info['access_token'])
+    top_artists_data = sp.current_user_top_artists(limit=5, time_range='short_term')
+    
+    nomes_artistas = [artista['name'] for artista in top_artists_data['items']]
+    artistas_str = ", ".join(nomes_artistas)
+    
+    return f"<h1>Seus Top 5 Artistas:</h1><p>{artistas_str}</p>"
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
