@@ -52,22 +52,39 @@ def analisar():
         
     try:
         sp = spotipy.Spotify(auth=token_info['access_token'])
-        top_artists_data = sp.current_user_top_artists(limit=5, time_range='short_term')
         
+        top_artists_data = sp.current_user_top_artists(limit=5, time_range='short_term')
         nomes_artistas = [artista['name'] for artista in top_artists_data['items']]
         artistas_str = ", ".join(nomes_artistas)
+
+        top_tracks_data = sp.current_user_top_tracks(limit=5, time_range='short_term')
+        nomes_musicas = [f"{t['name']} ({t['artists'][0]['name']})" for t in top_tracks_data['items']]
+        musicas_str = ", ".join(nomes_musicas)
         
         if not nomes_artistas:
-            return "<h1>Hmm...</h1><p>Você não ouviu música suficiente nas últimas semanas.</p>"
+            return "<h1>Hmm...</h1><p>Dados insuficientes no Spotify.</p>"
 
-        prompt_sistema = f"Você é um crítico musical insuportável e sarcástico. O usuário tem o seguinte top 5 de artistas mais ouvidos: {artistas_str}. Escreva um laudo de um parágrafo tirando sarro brutalmente do gosto dele. Vá direto ao ponto."
+        prompt_sistema = f"""
+        Você é o "Fiscal Musical", um crítico brasileiro extremamente sarcástico, ácido e impaciente.
+        O usuário ouve estes artistas: {artistas_str}.
+        E estas músicas: {musicas_str}.
+        Sua tarefa:
+        1. Comece com um apelido ofensivo para o gosto do usuário (ex: "O Caso do Cidadão Indeciso").
+        2. Escreva o laudo em um parágrafo, dedicando trechos para cada artista e depois outro parágrafo dedicado às músicas
+        3. Use um humor que misture referências de 'tiozão do rock' com 'jovem sommelier de indie' e um usuário do Twitter que tem humor de memes
+        4. Use negrito (**) em palavras-chave para dar ênfase. 
+        5. Seja direto: não passe de 4 ou 5 frases. Termine com uma frase de efeito.
+        """
         
         resposta_ia = gemini_client.models.generate_content(
             model='gemini-2.5-flash',
             contents=prompt_sistema
         )
         
-        return render_template('index.html', artistas=artistas_str, laudo=resposta_ia.text)
+        return render_template('resultado.html', 
+                               artistas=nomes_artistas, 
+                               musicas=nomes_musicas, 
+                               laudo=resposta_ia.text)
 
     except Exception as e:
         return f"<h1>Erro na Análise</h1><p>Detalhes: {e}</p>"

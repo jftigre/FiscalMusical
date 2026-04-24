@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Fiscal Musical</title>
+</head>
+<body>
+<div class="receipt">
+    <div class="header">
+        <h1>FISCAL MUSICAL</h1>
+    </div>
+
+    <span class="section-title">Top 5 Artistas:</span>
+    <ul class="artist-list">
+        {% for artista in artistas %}
+        <li><span>{{ artista }}</span></li>
+        {% endfor %}
+    </ul>
+
+    <span class="section-title">Top 5 Músicas:</span>
+    <ul class="artist-list">
+        {% for musica in musicas %}
+        <li><span>{{ musica }}</span></li>
+        {% endfor %}
+    </ul>
+
+    <span class="section-title">Laudo Pericial:</span>
+    <div class="laudo-box">
+        "{{ laudo }}"
+    </div>
+
+    <div class="footer">
+        <p>OBRIGADO POR NADA!</p>
+    </div>
+
+    <a href="/" class="btn-voltar">Nova Investigação</a>
+</div>
+</body>
+</html>
