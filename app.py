@@ -22,11 +22,7 @@ sp_oauth = SpotifyOAuth(
 
 @app.route('/')
 def index():
-    return '''
-        <h1>Bem-vindo ao Fiscal Musical</h1>
-        <p>Descubra o quão questionável é o seu gosto musical.</p>
-        <a href="/login"><button>Entrar com Spotify</button></a>
-    '''
+    return render_template('index.html')
 
 @app.route('/login')
 def login():
