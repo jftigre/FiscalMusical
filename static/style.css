@@ -1,0 +1,89 @@
+/* static/style.css */
+body {
+    background-color: #d1d1d1;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.receipt {
+    background-color: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-bottom: 12px dotted #d1d1d1; /* Efeito de picote */
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px dashed #333;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 25px;
+    display: block;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.artist-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.artist-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.laudo-box {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid #000;
+    background-color: #fcfcfc;
+    line-height: 1.6;
+    white-space: pre-wrap; /* Crucial para o texto da IA não bugar */
+    font-size: 14px;
+    font-style: italic;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 2px dashed #333;
+    padding-top: 15px;
+    font-size: 12px;
+}
+
+.btn-voltar {
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-voltar:hover {
+    background-color: #000;
+    color: #fff;
+}
