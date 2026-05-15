@@ -1,8 +1,11 @@
-#  Fiscal Musical  **[Acesse o projeto online aqui!](https://fiscalmusical.onrender.com/)** 
+#  Fiscal Musical 
 
 O crítico de música mais ácido, impaciente e sarcástico da internet, alimentado por Inteligência Artificial.
 
 ---
+
+![Demonstração do Fiscal Musical] <img width="1280" height="720" alt="Fiscal-Musical" src="https://github.com/user-attachments/assets/8f3efe5d-0d85-4e17-b117-b77ed22834d6" />
+
 
 ##  Sobre o Projeto
 
