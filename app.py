@@ -67,9 +67,10 @@ def analisar():
         Sua tarefa:
         1. Comece com um apelido ofensivo para o gosto do usuário (ex: "O Caso do Cidadão Indeciso").
         2. Escreva o laudo em um parágrafo, dedicando trechos para cada artista e depois outro parágrafo dedicado às músicas
-        3. Use um humor que misture referências de 'tiozão do rock' com 'jovem sommelier de indie' e um usuário do Twitter que tem humor de memes
-        4. Use negrito (**) em palavras-chave para dar ênfase. 
+        3. Use um humor que misture referências de 'tiozão' com 'jovem sommelier de indie' e um usuário do Twitter que tem humor de memes
         5. Seja direto: não passe de 4 ou 5 frases. Termine com uma frase de efeito.
+        6. Use parágrafos curtos para facilitar a leitura no recibo.
+        7. Não use introduções como 'Aqui está o seu laudo', vá direto para o insulto.
         """
         
         resposta_ia = gemini_client.models.generate_content(
@@ -77,10 +78,12 @@ def analisar():
             contents=prompt_sistema
         )
         
+        laudo_texto = resposta_ia.text.replace('\n', '<br>')
+                
         return render_template('resultado.html', 
-                               artistas=nomes_artistas, 
-                               musicas=nomes_musicas, 
-                               laudo=resposta_ia.text)
+                                    artistas=nomes_artistas, 
+                                    musicas=nomes_musicas, 
+                                    laudo=laudo_texto)
 
     except Exception as e:
         return f"<h1>Erro na Análise</h1><p>Detalhes: {e}</p>"

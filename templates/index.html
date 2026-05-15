@@ -2,19 +2,48 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Fiscal Musical</title>
 </head>
 <body>
-    <div class="receipt">
-        <div class="header">
+
+    <main class="receipt">
+        <header class="header">
             <h1>FISCAL MUSICAL</h1>
-        </div>
-        <p style="text-align: center;">Bem-vindo ao sistema de verificação de mau gosto musical.</p>
-        <a href="/login" class="btn-voltar" style="background-color: #000; color: #fff;">ENTRAR COM SPOTIFY</a>
-        <div class="footer">
+        </header>
+
+        <section class="content">
+            <p class="subtitle">
+                Conecte sua conta e descubra o quão questionável é o seu gosto musical segundo nossa IA.
+            </p>
+
+            <div class="action-area">
+                <a href="/login" class="btn-principal" id="login-btn" onclick="loading()">
+                    ENTRAR COM SPOTIFY
+                </a>
+
+                <div id="loading-msg" style="display:none; margin-top: 20px;">
+                    <p style="font-weight: bold; color: #1DB954; margin: 0;">⏳ ANÁLISE EM ANDAMENTO...</p>
+                    <small style="color: #666; display: block; margin-top: 5px;">
+                        Isso pode levar alguns segundos, não atualize a página.
+                    </small>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
             <p>ESTEJA PREPARADO PARA A VERDADE.</p>
-        </div>
-    </div>
+            <small>© 2026 Fiscal Musical Project</small>
+        </footer>
+    </main>
+
+    <script>
+        function loading() {
+            document.getElementById('login-btn').style.display = 'none';
+            document.getElementById('loading-msg').style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>

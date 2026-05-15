@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Fiscal Musical</title>
+    <title>Fiscal Musical - Resultado</title>
 </head>
-
-<body>
+<body>  
     <div class="receipt">
         <div class="header">
             <h1>FISCAL MUSICAL</h1>
@@ -29,7 +28,7 @@
 
         <span class="section-title">Laudo Pericial:</span>
         <div class="laudo-box">
-            "{{ laudo }}"
+            {{ laudo | safe }}
         </div>
 
         <div class="footer">
@@ -39,5 +38,4 @@
         <a href="/" class="btn-voltar">Nova Investigação</a>
     </div>
 </body>
-
 </html>
