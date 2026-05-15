@@ -1,4 +1,4 @@
-#  Fiscal Musical 
+#  Fiscal Musical  **[Acesse o projeto online aqui!](https://fiscalmusical.onrender.com/)** 
 
 O crítico de música mais ácido, impaciente e sarcástico da internet, alimentado por Inteligência Artificial.
 
@@ -33,10 +33,3 @@ Diferente das retrospectivas tradicionais e amigáveis de fim de ano, o Fiscal a
 | **Hospedagem / Nuvem** | Render |
 
 ---
-
-##  Instalação e Execução Local
-
-### 1. Clonar o Repositório
-```bash
-git clone [https://github.com/jftigre/fiscalmusical.git](https://github.com/jftigre/fiscalmusical.git)
-cd fiscalmusical
